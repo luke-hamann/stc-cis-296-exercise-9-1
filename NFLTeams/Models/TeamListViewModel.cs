@@ -35,5 +35,7 @@ namespace NFLTeams.Models
             c.ToLower() == ActiveConf.ToLower() ? "active" : "";
         public string CheckActiveDiv(string d) => 
             d.ToLower() == ActiveDiv.ToLower() ? "active" : "";
+
+        public string UserName { get; set; }
     }
 }
