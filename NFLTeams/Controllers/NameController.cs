@@ -1,12 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NFLTeams.Models;
 
 namespace NFLTeams.Controllers
 {
     public class NameController : Controller
     {
-        public IActionResult Index()
+        [HttpGet]
+        public ViewResult Index()
         {
-            return View();
+            var session = new NFLSession(HttpContext.Session);
+            var model = new TeamListViewModel
+            {
+                ActiveConf = session.GetActiveConf(),
+                ActiveDiv = session.GetActiveDiv(),
+                Teams = session.GetMyTeams(),
+                UserName = session.GetUserName()
+            };
+
+            return View(model);
         }
     }
 }
