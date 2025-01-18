@@ -1,0 +1,17 @@
+﻿@model TeamListViewModel
+@{
+    ViewData["Title"] = "Change Name";
+}
+
+<h2 class="text-center">Change Name</h2>
+
+<form asp-action="Change" method="post">
+    <input asp-for="UserName" placeholder="Type name here"
+           class="mb-3" /><br />
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary"
+       asp-route-activeConf="@Model.ActiveConf"
+       asp-route-activeDiv="@Model.ActiveDiv">Return to Home Page</a>
+    <button type="submit" class="btn btn-primary">
+        Change Name
+    </button>
+</form>
