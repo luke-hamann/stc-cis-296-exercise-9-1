@@ -24,7 +24,8 @@
                 var session = new NFLSession(Context.Session);
                 <h5 class="bg-info p-2">
                     <a asp-controller="Favorites" asp-action="Index"
-                       class="text-white">My Favorite Teams</a>
+                       class="text-white">@(String.IsNullOrEmpty(session.GetUserName())
+                                          ? "My" : session.GetUserName() + "'s") Favorite Teams</a>
 
                     @* get number of Favorite teams from session and display in badge *@
                     <span class="badge badge-light">@(session.GetMyTeamCount())</span>
